@@ -70,6 +70,12 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
+    - name: feeds onion
+      run: cd openwrt && ./scripts/feeds update onion   
+        
+    - name: set FORCE_UNSAFE_CONFIGURE=1
+      run: cd openwrt && set FORCE_UNSAFE_CONFIGURE=1
+
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
